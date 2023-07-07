@@ -52,5 +52,41 @@
       "thumbnail": "no img",
       "code": "AAA128",
       "stock": 23
+    },
+    {
+      "id": 1117,
+      "title": "Testing prod. N° 07",
+      "description": "Este es un producto de prueba",
+      "price": 1600,
+      "thumbnail": "no img",
+      "code": "AAA129",
+      "stock": 10
+    },
+    {
+      "id": 1118,
+      "title": "Testing prod. N° 08",
+      "description": "Este es un producto de prueba",
+      "price": 3200,
+      "thumbnail": "no img",
+      "code": "AAA130",
+      "stock": 14
+    },
+    {
+      "id": 1119,
+      "title": "Testing prod. N° 09",
+      "description": "Este es un producto de prueba",
+      "price": 1790,
+      "thumbnail": "no img",
+      "code": "AAA131",
+      "stock": 28
+    },
+    {
+      "id": 1120,
+      "title": "Testing prod. N° 10",
+      "description": "Este es un producto de prueba",
+      "price": 2300,
+      "thumbnail": "no img",
+      "code": "AAA132",
+      "stock": 11
     }
   ]
