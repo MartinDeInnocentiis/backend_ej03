@@ -1,17 +1,17 @@
 import express from "express";
 import { ProductManager } from "./ProductManager.js";
 
-const app = express();
-const PORT = 8080;
-const prodMngr = new ProductManager("products.json");
-let productos = [];
+const app = express(); //SE CREA UNA INSTANCIA DE EXPRESS
+const PORT = 8080; //SE DEFINE EL NUMERO DE PUERTO EN EL CUAL SE EJECUTARÁ EL SERVIDOR
+const prodMngr = new ProductManager("products.json"); //INSTACNIAMOS LA CLASS ProductManager
 
+//SE CREA LA RUTA PRINCIPAL QUE DEVUELVE "HELLO WORLD" AL ACCEDER A ELLA
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 
 
-
+//CREAMOS UNA RUTA LLAMADA PRODUCTS QUE DEVUELVE UNA LISTA DE PRODUCTOS, QUE VIENE DESDE LA INSTANCIA prodMngr DE LA CLASS ProductManager
 app.get("/products", async (req, res) => {
   const { limit } = req.query;
   try {
@@ -28,12 +28,13 @@ app.get("/products", async (req, res) => {
   }
 });
 
+//CREAMOS RUTA DINAMICA QUE DEVUELVE UN PRODUCTO SEGÚN SU NUMERO DE ID
 app.get("/products/:prodid", async (req, res) => {
   const { prodid } = req.params;
 
   let product = await prodMngr.getProductById(parseInt(prodid));
 
-  if (product) {
+  if (product && product.id) {
     res.json({ message: "Success.", data: product });
   } else {
     res.json({
@@ -43,7 +44,7 @@ app.get("/products/:prodid", async (req, res) => {
 });
 
 
-
+//INICIAMOS EL SERVIDOR EN EL PUERTO ESPECIFICADO
 app.listen(PORT, () => {
   console.log("Server is running on port..." + PORT);
 });
